@@ -59,6 +59,6 @@ chown -R www-data:www-data /var/www/html
 
 # restore database
 echo "restoring data from mysql dump file $SQL_ARCHIVE"
-bunzip2 < "${SQL_ARCHIVE}" | mysql --user="${MYSQL_ENV_MYSQL_USER}" --password="${MYSQL_ENV_MYSQL_PASSWORD}" --host="${MYSQL_ENV_MYSQL_HOST}" "${MYSQL_ENV_MYSQL_DATABASE}"
+bunzip2 < "${SQL_ARCHIVE}" | mysql --user="${MYSQL_ENV_MYSQL_USER}" --password="${MYSQL_ENV_MYSQL_PASSWORD}" --host="${MYSQL_ENV_MYSQL_HOST}" --port="$MYSQL_PORT_3306_TCP_PORT" "${MYSQL_ENV_MYSQL_DATABASE}"
 
 echo 'Finished: SUCCESS'
